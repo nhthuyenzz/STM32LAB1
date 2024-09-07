@@ -47,7 +47,7 @@
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
-/* USER CODE BEGIN PFP */
+/* USER CODE BEGIN 	PFP */
 
 /* USER CODE END PFP */
 
@@ -63,7 +63,7 @@ void SystemClock_Config(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
+	//TODO EX2
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
