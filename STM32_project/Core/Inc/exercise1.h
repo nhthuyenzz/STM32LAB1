@@ -1,5 +1,5 @@
-#ifndef INC_BUTTON_H_
-#define INC_BUTTON_H_
+#ifndef INC_exercise1_H_
+#define INC_exercise1_H_
 
 #include "main.h"
 

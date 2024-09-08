@@ -1,8 +1,8 @@
 /*
- * exercise1.c
+ * exercise.c
  *
- *  Created on: Aug 31, 2024
- *      Author: KAI
+ *  Created on: Sep 8, 2024
+ *      Author: Thuyen
  */
 #include "exercise1.h"
 
@@ -37,5 +37,4 @@ void exercise1_run(){
 			break;
 	}
 }
-
 
