@@ -22,7 +22,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "test.h"
+#include "exercise1.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -97,8 +97,8 @@ int main(void)
 
   while (1)
   {
-	  test_run();
-	  HAL_Delay(1000);
+	  exercise1_run();
+	  HAL_Delay(500);
 
     /* USER CODE END WHILE */
 
