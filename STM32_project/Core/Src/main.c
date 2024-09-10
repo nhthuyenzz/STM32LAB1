@@ -22,7 +22,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "test.h"
+#include "exercise2.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -97,9 +97,8 @@ int main(void)
 
   while (1)
   {
-	  test_run();
+	  exercise2_run();
 	  HAL_Delay(1000);
-
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -204,7 +203,9 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOA, LED_RED_Pin|LED_YELLOW_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, LED1_RED_Pin|LED11_GREEN_Pin|LED12_YELLOW_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, LED1_RED_Pin|LED2_RED_Pin|LED3_YELLOW_Pin|LED11_GREEN_Pin
+                          |LED12_YELLOW_Pin|LED4_RED_Pin|LED5_RED_Pin|LED6_YELLOW_Pin
+                          |LED7_GREEN_Pin|LED8_RED_Pin|LED10_GREEN_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : LED_RED_Pin LED_YELLOW_Pin */
   GPIO_InitStruct.Pin = LED_RED_Pin|LED_YELLOW_Pin;
@@ -213,8 +214,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : LED1_RED_Pin LED11_GREEN_Pin LED12_YELLOW_Pin */
-  GPIO_InitStruct.Pin = LED1_RED_Pin|LED11_GREEN_Pin|LED12_YELLOW_Pin;
+  /*Configure GPIO pins : LED1_RED_Pin LED2_RED_Pin LED3_YELLOW_Pin LED11_GREEN_Pin
+                           LED12_YELLOW_Pin LED4_RED_Pin LED5_RED_Pin LED6_YELLOW_Pin
+                           LED7_GREEN_Pin LED8_RED_Pin LED10_GREEN_Pin */
+  GPIO_InitStruct.Pin = LED1_RED_Pin|LED2_RED_Pin|LED3_YELLOW_Pin|LED11_GREEN_Pin
+                          |LED12_YELLOW_Pin|LED4_RED_Pin|LED5_RED_Pin|LED6_YELLOW_Pin
+                          |LED7_GREEN_Pin|LED8_RED_Pin|LED10_GREEN_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
