@@ -5,7 +5,11 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+<<<<<<< HEAD
 ../Core/Src/exercise1.c \
+=======
+../Core/Src/exercise2.c \
+>>>>>>> 3599597d9f4baf448453e534518e7a7c922d05e3
 ../Core/Src/main.c \
 ../Core/Src/stm32f1xx_hal_msp.c \
 ../Core/Src/stm32f1xx_it.c \
@@ -14,7 +18,11 @@ C_SRCS += \
 ../Core/Src/system_stm32f1xx.c 
 
 OBJS += \
+<<<<<<< HEAD
 ./Core/Src/exercise1.o \
+=======
+./Core/Src/exercise2.o \
+>>>>>>> 3599597d9f4baf448453e534518e7a7c922d05e3
 ./Core/Src/main.o \
 ./Core/Src/stm32f1xx_hal_msp.o \
 ./Core/Src/stm32f1xx_it.o \
@@ -23,7 +31,11 @@ OBJS += \
 ./Core/Src/system_stm32f1xx.o 
 
 C_DEPS += \
+<<<<<<< HEAD
 ./Core/Src/exercise1.d \
+=======
+./Core/Src/exercise2.d \
+>>>>>>> 3599597d9f4baf448453e534518e7a7c922d05e3
 ./Core/Src/main.d \
 ./Core/Src/stm32f1xx_hal_msp.d \
 ./Core/Src/stm32f1xx_it.d \

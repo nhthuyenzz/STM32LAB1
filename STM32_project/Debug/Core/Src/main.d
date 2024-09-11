@@ -23,7 +23,11 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h \
+<<<<<<< HEAD
  ../Core/Inc/exercise1.h ../Core/Inc/main.h
+=======
+ ../Core/Inc/exercise2.h ../Core/Inc/main.h
+>>>>>>> 3599597d9f4baf448453e534518e7a7c922d05e3
 
 ../Core/Inc/main.h:
 
@@ -75,6 +79,10 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h:
 
+<<<<<<< HEAD
 ../Core/Inc/exercise1.h:
+=======
+../Core/Inc/exercise2.h:
+>>>>>>> 3599597d9f4baf448453e534518e7a7c922d05e3
 
 ../Core/Inc/main.h:
