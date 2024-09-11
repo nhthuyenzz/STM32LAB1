@@ -1,0 +1,5 @@
+exercise2.c:13:6:init_exercise2	4	static
+exercise2.c:17:6:led_green_on	8	static
+exercise2.c:23:6:led_yellow_on	8	static
+exercise2.c:29:6:led_red_on	8	static
+exercise2.c:35:6:exercise2_run	8	static
