@@ -6,10 +6,10 @@
  */
 
 #include "exercise3.h"
-int led_status_1 = RED1;
-int led_status_2 = GREEN2;
-int counter1 = time_RED;
-int counter2 = time_GREEN;
+int led_status_1 = GREEN1;
+int led_status_2 = RED2;
+int counter1 = time_GREEN;
+int counter2 = time_RED;
 
 void init_exercise3(){
 
@@ -75,84 +75,85 @@ void led_red_on_2(){
 	HAL_GPIO_WritePin(LED8_RED_GPIO_Port, LED8_RED_Pin, SET);
 }
 
-void exercise3_run(){
-	if (led_status_1 == RED1){
-		led_red_on_1();
-		led_green_on_2();
-		if (counter1 <= 0){
-			led_green_on_1();
-			led_status_1 = GREEN1;
-			counter1 = time_GREEN;
-		}
+void exercise3_run() {
+    if (led_status_1 == RED1) {
+        led_red_on_1();
+        if (counter1 <= 0) {
+            led_green_on_1();
+            led_status_1 = GREEN1;
+            counter1 = time_GREEN;
+        }
 
-		if (counter2 <=0){
-			led_yellow_on_2();
-			led_status_2 = YELLOW2;
-			counter2 = time_YELLOW;
-		}
-	}
+        if (counter2 <= 0) {
+            led_yellow_on_2();
+            led_status_2 = YELLOW2;
+            counter2 = time_YELLOW;
+        }
+    }
 
-	if (led_status_2 == RED2){
-		led_red_on_2();
-		led_green_on_2();
-		if (counter1 <= 0){
-			led_green_on_1();
-			led_status_1 = GREEN1;
-			counter1 = time_GREEN;
-		}
+    if (led_status_1 == YELLOW1) {
+        led_yellow_on_1();
+        if (counter1 <= 0) {
+            led_red_on_1();
+            led_green_on_2();
+            led_status_1 = RED1;
+            led_status_2 = GREEN2;
+            counter1 = time_RED;
+            counter2 = time_GREEN;
+        }
+    }
 
-		if (counter2 <=0){
-			led_yellow_on_2();
-			led_status_2 = YELLOW2;
-			counter2 = time_YELLOW;
-		}
-	}
+    if (led_status_1 == GREEN1) {
+        led_green_on_1();
+        if (counter1 <= 0) {
+            led_yellow_on_1();
+            led_status_1 = YELLOW1;
+            counter1 = time_YELLOW;
+        }
+    }
 
-	if (led_status_1 == YELLOW1){
-		led_yellow_on_1();
-		led_red_on_2();
-		if (counter1 <= 0){
-			led_red_on_1();
-			led_green_on_2();
-			led_status_1 = RED1;
-			led_status_2 = GREEN2;
-			counter1 = time_RED;
-			counter2 = time_GREEN;
-		}
-	}
+    if (led_status_2 == RED2) {
+        led_red_on_2();
+        if (counter2 <= 0) {
+            led_green_on_2();
+            led_status_2 = GREEN2;
+            counter2 = time_GREEN;
+        }
 
-	if (led_status_2 == YELLOW2){
-		led_yellow_on_2();
-		led_red_on_1();
-		if (counter2 <= 0){
-			led_red_on_2();
-			led_green_on_1();
-			led_status_2 = RED2;
-			led_status_1 = GREEN1;
-			counter1 = time_GREEN;
-			counter2 = time_RED;
-		}
-	}
+        if (counter1 <= 0 && led_status_1 != YELLOW1) { // Sync with led_status_1
+            led_yellow_on_1();
+            led_status_1 = YELLOW1;
+            counter1 = time_YELLOW;
+        }
+    }
 
-	if (led_status_1 == GREEN1){
-		led_green_on_1();
-		led_red_on_2();
-		if (counter1 <= 0){
-			led_yellow_on_1();
-			led_status_1 = YELLOW1;
-			counter1 = time_YELLOW;
-		}
-	}
+    if (led_status_2 == YELLOW2) {
+        led_yellow_on_2();
+        if (counter2 <= 0) {
+            led_red_on_2();
+            led_green_on_1();
+            led_status_2 = RED2;
+            led_status_1 = GREEN1;
+            counter2 = time_RED;
+            counter1 = time_GREEN;
+        }
+    }
 
-	if (led_status_2 == GREEN2){
-		led_green_on_2();
-		led_red_on_1();
-		if(counter2 <= 0){
-			led_yellow_on_2();
-			led_status_2= YELLOW2;
-			counter2 = time_YELLOW;
-		}
-	}
-	counter1--;
-	counter2--;
+    if (led_status_2 == GREEN2) {
+        led_green_on_2();
+        if (counter2 <= 0) {
+            led_yellow_on_2();
+            led_status_2 = YELLOW2;
+            counter2 = time_YELLOW;
+        }
+    }
+
+    // Decrement counters
+    if (counter1 > 0) {
+        counter1--;
+    }
+
+    if (counter2 > 0) {
+        counter2--;
+    }
 }

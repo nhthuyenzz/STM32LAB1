@@ -37,13 +37,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  16 .debug_macro  00015a0e  00000000  00000000  0002afe0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   00009a55  00000000  00000000  000409ee  2**0
+ 17 .debug_line   00009a5b  00000000  00000000  000409ee  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    0008211e  00000000  00000000  0004a443  2**0
+ 18 .debug_str    0008211e  00000000  00000000  0004a449  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000053  00000000  00000000  000cc561  2**0
+ 19 .comment      00000053  00000000  00000000  000cc567  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00002694  00000000  00000000  000cc5b4  2**2
+ 20 .debug_frame  00002694  00000000  00000000  000cc5bc  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -328,236 +328,243 @@ void led_red_on_2(){
 
 08000314 <exercise3_run>:
 
-void exercise3_run(){
+void exercise3_run() {
  8000314:	b580      	push	{r7, lr}
  8000316:	af00      	add	r7, sp, #0
-	if (led_status_1 == RED1){
+    if (led_status_1 == RED1) {
  8000318:	4b55      	ldr	r3, [pc, #340]	; (8000470 <exercise3_run+0x15c>)
  800031a:	681b      	ldr	r3, [r3, #0]
  800031c:	2b06      	cmp	r3, #6
- 800031e:	d11b      	bne.n	8000358 <exercise3_run+0x44>
-		led_red_on_1();
+ 800031e:	d119      	bne.n	8000354 <exercise3_run+0x40>
+        led_red_on_1();
  8000320:	f7ff ffac 	bl	800027c <led_red_on_1>
-		led_green_on_2();
- 8000324:	f7ff ff38 	bl	8000198 <led_green_on_2>
-		if (counter1 <= 0){
- 8000328:	4b52      	ldr	r3, [pc, #328]	; (8000474 <exercise3_run+0x160>)
- 800032a:	681b      	ldr	r3, [r3, #0]
- 800032c:	2b00      	cmp	r3, #0
- 800032e:	dc07      	bgt.n	8000340 <exercise3_run+0x2c>
-			led_green_on_1();
- 8000330:	f7ff ff0c 	bl	800014c <led_green_on_1>
-			led_status_1 = GREEN1;
- 8000334:	4b4e      	ldr	r3, [pc, #312]	; (8000470 <exercise3_run+0x15c>)
- 8000336:	2208      	movs	r2, #8
- 8000338:	601a      	str	r2, [r3, #0]
-			counter1 = time_GREEN;
- 800033a:	4b4e      	ldr	r3, [pc, #312]	; (8000474 <exercise3_run+0x160>)
- 800033c:	2203      	movs	r2, #3
- 800033e:	601a      	str	r2, [r3, #0]
-		}
+        if (counter1 <= 0) {
+ 8000324:	4b53      	ldr	r3, [pc, #332]	; (8000474 <exercise3_run+0x160>)
+ 8000326:	681b      	ldr	r3, [r3, #0]
+ 8000328:	2b00      	cmp	r3, #0
+ 800032a:	dc07      	bgt.n	800033c <exercise3_run+0x28>
+            led_green_on_1();
+ 800032c:	f7ff ff0e 	bl	800014c <led_green_on_1>
+            led_status_1 = GREEN1;
+ 8000330:	4b4f      	ldr	r3, [pc, #316]	; (8000470 <exercise3_run+0x15c>)
+ 8000332:	2208      	movs	r2, #8
+ 8000334:	601a      	str	r2, [r3, #0]
+            counter1 = time_GREEN;
+ 8000336:	4b4f      	ldr	r3, [pc, #316]	; (8000474 <exercise3_run+0x160>)
+ 8000338:	2203      	movs	r2, #3
+ 800033a:	601a      	str	r2, [r3, #0]
+        }
 
-		if (counter2 <=0){
- 8000340:	4b4d      	ldr	r3, [pc, #308]	; (8000478 <exercise3_run+0x164>)
- 8000342:	681b      	ldr	r3, [r3, #0]
- 8000344:	2b00      	cmp	r3, #0
- 8000346:	dc07      	bgt.n	8000358 <exercise3_run+0x44>
-			led_yellow_on_2();
- 8000348:	f7ff ff72 	bl	8000230 <led_yellow_on_2>
-			led_status_2 = YELLOW2;
- 800034c:	4b4b      	ldr	r3, [pc, #300]	; (800047c <exercise3_run+0x168>)
- 800034e:	220b      	movs	r2, #11
- 8000350:	601a      	str	r2, [r3, #0]
-			counter2 = time_YELLOW;
- 8000352:	4b49      	ldr	r3, [pc, #292]	; (8000478 <exercise3_run+0x164>)
- 8000354:	2202      	movs	r2, #2
- 8000356:	601a      	str	r2, [r3, #0]
-		}
-	}
+        if (counter2 <= 0) {
+ 800033c:	4b4e      	ldr	r3, [pc, #312]	; (8000478 <exercise3_run+0x164>)
+ 800033e:	681b      	ldr	r3, [r3, #0]
+ 8000340:	2b00      	cmp	r3, #0
+ 8000342:	dc07      	bgt.n	8000354 <exercise3_run+0x40>
+            led_yellow_on_2();
+ 8000344:	f7ff ff74 	bl	8000230 <led_yellow_on_2>
+            led_status_2 = YELLOW2;
+ 8000348:	4b4c      	ldr	r3, [pc, #304]	; (800047c <exercise3_run+0x168>)
+ 800034a:	220b      	movs	r2, #11
+ 800034c:	601a      	str	r2, [r3, #0]
+            counter2 = time_YELLOW;
+ 800034e:	4b4a      	ldr	r3, [pc, #296]	; (8000478 <exercise3_run+0x164>)
+ 8000350:	2202      	movs	r2, #2
+ 8000352:	601a      	str	r2, [r3, #0]
+        }
+    }
 
-	if (led_status_2 == RED2){
- 8000358:	4b48      	ldr	r3, [pc, #288]	; (800047c <exercise3_run+0x168>)
- 800035a:	681b      	ldr	r3, [r3, #0]
- 800035c:	2b07      	cmp	r3, #7
- 800035e:	d11b      	bne.n	8000398 <exercise3_run+0x84>
-		led_red_on_2();
- 8000360:	f7ff ffb2 	bl	80002c8 <led_red_on_2>
-		led_green_on_2();
- 8000364:	f7ff ff18 	bl	8000198 <led_green_on_2>
-		if (counter1 <= 0){
- 8000368:	4b42      	ldr	r3, [pc, #264]	; (8000474 <exercise3_run+0x160>)
- 800036a:	681b      	ldr	r3, [r3, #0]
- 800036c:	2b00      	cmp	r3, #0
- 800036e:	dc07      	bgt.n	8000380 <exercise3_run+0x6c>
-			led_green_on_1();
- 8000370:	f7ff feec 	bl	800014c <led_green_on_1>
-			led_status_1 = GREEN1;
- 8000374:	4b3e      	ldr	r3, [pc, #248]	; (8000470 <exercise3_run+0x15c>)
- 8000376:	2208      	movs	r2, #8
- 8000378:	601a      	str	r2, [r3, #0]
-			counter1 = time_GREEN;
- 800037a:	4b3e      	ldr	r3, [pc, #248]	; (8000474 <exercise3_run+0x160>)
- 800037c:	2203      	movs	r2, #3
- 800037e:	601a      	str	r2, [r3, #0]
-		}
+    if (led_status_1 == YELLOW1) {
+ 8000354:	4b46      	ldr	r3, [pc, #280]	; (8000470 <exercise3_run+0x15c>)
+ 8000356:	681b      	ldr	r3, [r3, #0]
+ 8000358:	2b0a      	cmp	r3, #10
+ 800035a:	d115      	bne.n	8000388 <exercise3_run+0x74>
+        led_yellow_on_1();
+ 800035c:	f7ff ff42 	bl	80001e4 <led_yellow_on_1>
+        if (counter1 <= 0) {
+ 8000360:	4b44      	ldr	r3, [pc, #272]	; (8000474 <exercise3_run+0x160>)
+ 8000362:	681b      	ldr	r3, [r3, #0]
+ 8000364:	2b00      	cmp	r3, #0
+ 8000366:	dc0f      	bgt.n	8000388 <exercise3_run+0x74>
+            led_red_on_1();
+ 8000368:	f7ff ff88 	bl	800027c <led_red_on_1>
+            led_green_on_2();
+ 800036c:	f7ff ff14 	bl	8000198 <led_green_on_2>
+            led_status_1 = RED1;
+ 8000370:	4b3f      	ldr	r3, [pc, #252]	; (8000470 <exercise3_run+0x15c>)
+ 8000372:	2206      	movs	r2, #6
+ 8000374:	601a      	str	r2, [r3, #0]
+            led_status_2 = GREEN2;
+ 8000376:	4b41      	ldr	r3, [pc, #260]	; (800047c <exercise3_run+0x168>)
+ 8000378:	2209      	movs	r2, #9
+ 800037a:	601a      	str	r2, [r3, #0]
+            counter1 = time_RED;
+ 800037c:	4b3d      	ldr	r3, [pc, #244]	; (8000474 <exercise3_run+0x160>)
+ 800037e:	2205      	movs	r2, #5
+ 8000380:	601a      	str	r2, [r3, #0]
+            counter2 = time_GREEN;
+ 8000382:	4b3d      	ldr	r3, [pc, #244]	; (8000478 <exercise3_run+0x164>)
+ 8000384:	2203      	movs	r2, #3
+ 8000386:	601a      	str	r2, [r3, #0]
+        }
+    }
 
-		if (counter2 <=0){
- 8000380:	4b3d      	ldr	r3, [pc, #244]	; (8000478 <exercise3_run+0x164>)
- 8000382:	681b      	ldr	r3, [r3, #0]
- 8000384:	2b00      	cmp	r3, #0
- 8000386:	dc07      	bgt.n	8000398 <exercise3_run+0x84>
-			led_yellow_on_2();
- 8000388:	f7ff ff52 	bl	8000230 <led_yellow_on_2>
-			led_status_2 = YELLOW2;
- 800038c:	4b3b      	ldr	r3, [pc, #236]	; (800047c <exercise3_run+0x168>)
- 800038e:	220b      	movs	r2, #11
- 8000390:	601a      	str	r2, [r3, #0]
-			counter2 = time_YELLOW;
- 8000392:	4b39      	ldr	r3, [pc, #228]	; (8000478 <exercise3_run+0x164>)
- 8000394:	2202      	movs	r2, #2
- 8000396:	601a      	str	r2, [r3, #0]
-		}
-	}
+    if (led_status_1 == GREEN1) {
+ 8000388:	4b39      	ldr	r3, [pc, #228]	; (8000470 <exercise3_run+0x15c>)
+ 800038a:	681b      	ldr	r3, [r3, #0]
+ 800038c:	2b08      	cmp	r3, #8
+ 800038e:	d10d      	bne.n	80003ac <exercise3_run+0x98>
+        led_green_on_1();
+ 8000390:	f7ff fedc 	bl	800014c <led_green_on_1>
+        if (counter1 <= 0) {
+ 8000394:	4b37      	ldr	r3, [pc, #220]	; (8000474 <exercise3_run+0x160>)
+ 8000396:	681b      	ldr	r3, [r3, #0]
+ 8000398:	2b00      	cmp	r3, #0
+ 800039a:	dc07      	bgt.n	80003ac <exercise3_run+0x98>
+            led_yellow_on_1();
+ 800039c:	f7ff ff22 	bl	80001e4 <led_yellow_on_1>
+            led_status_1 = YELLOW1;
+ 80003a0:	4b33      	ldr	r3, [pc, #204]	; (8000470 <exercise3_run+0x15c>)
+ 80003a2:	220a      	movs	r2, #10
+ 80003a4:	601a      	str	r2, [r3, #0]
+            counter1 = time_YELLOW;
+ 80003a6:	4b33      	ldr	r3, [pc, #204]	; (8000474 <exercise3_run+0x160>)
+ 80003a8:	2202      	movs	r2, #2
+ 80003aa:	601a      	str	r2, [r3, #0]
+        }
+    }
 
-	if (led_status_1 == YELLOW1){
- 8000398:	4b35      	ldr	r3, [pc, #212]	; (8000470 <exercise3_run+0x15c>)
- 800039a:	681b      	ldr	r3, [r3, #0]
- 800039c:	2b0a      	cmp	r3, #10
- 800039e:	d117      	bne.n	80003d0 <exercise3_run+0xbc>
-		led_yellow_on_1();
- 80003a0:	f7ff ff20 	bl	80001e4 <led_yellow_on_1>
-		led_red_on_2();
- 80003a4:	f7ff ff90 	bl	80002c8 <led_red_on_2>
-		if (counter1 <= 0){
- 80003a8:	4b32      	ldr	r3, [pc, #200]	; (8000474 <exercise3_run+0x160>)
- 80003aa:	681b      	ldr	r3, [r3, #0]
- 80003ac:	2b00      	cmp	r3, #0
- 80003ae:	dc0f      	bgt.n	80003d0 <exercise3_run+0xbc>
-			led_red_on_1();
- 80003b0:	f7ff ff64 	bl	800027c <led_red_on_1>
-			led_green_on_2();
- 80003b4:	f7ff fef0 	bl	8000198 <led_green_on_2>
-			led_status_1 = RED1;
- 80003b8:	4b2d      	ldr	r3, [pc, #180]	; (8000470 <exercise3_run+0x15c>)
- 80003ba:	2206      	movs	r2, #6
- 80003bc:	601a      	str	r2, [r3, #0]
-			led_status_2 = GREEN2;
- 80003be:	4b2f      	ldr	r3, [pc, #188]	; (800047c <exercise3_run+0x168>)
- 80003c0:	2209      	movs	r2, #9
- 80003c2:	601a      	str	r2, [r3, #0]
-			counter1 = time_RED;
- 80003c4:	4b2b      	ldr	r3, [pc, #172]	; (8000474 <exercise3_run+0x160>)
- 80003c6:	2205      	movs	r2, #5
+    if (led_status_2 == RED2) {
+ 80003ac:	4b33      	ldr	r3, [pc, #204]	; (800047c <exercise3_run+0x168>)
+ 80003ae:	681b      	ldr	r3, [r3, #0]
+ 80003b0:	2b07      	cmp	r3, #7
+ 80003b2:	d11d      	bne.n	80003f0 <exercise3_run+0xdc>
+        led_red_on_2();
+ 80003b4:	f7ff ff88 	bl	80002c8 <led_red_on_2>
+        if (counter2 <= 0) {
+ 80003b8:	4b2f      	ldr	r3, [pc, #188]	; (8000478 <exercise3_run+0x164>)
+ 80003ba:	681b      	ldr	r3, [r3, #0]
+ 80003bc:	2b00      	cmp	r3, #0
+ 80003be:	dc07      	bgt.n	80003d0 <exercise3_run+0xbc>
+            led_green_on_2();
+ 80003c0:	f7ff feea 	bl	8000198 <led_green_on_2>
+            led_status_2 = GREEN2;
+ 80003c4:	4b2d      	ldr	r3, [pc, #180]	; (800047c <exercise3_run+0x168>)
+ 80003c6:	2209      	movs	r2, #9
  80003c8:	601a      	str	r2, [r3, #0]
-			counter2 = time_GREEN;
+            counter2 = time_GREEN;
  80003ca:	4b2b      	ldr	r3, [pc, #172]	; (8000478 <exercise3_run+0x164>)
  80003cc:	2203      	movs	r2, #3
  80003ce:	601a      	str	r2, [r3, #0]
-		}
-	}
+        }
 
-	if (led_status_2 == YELLOW2){
- 80003d0:	4b2a      	ldr	r3, [pc, #168]	; (800047c <exercise3_run+0x168>)
+        if (counter1 <= 0 && led_status_1 != YELLOW1) { // Sync with led_status_1
+ 80003d0:	4b28      	ldr	r3, [pc, #160]	; (8000474 <exercise3_run+0x160>)
  80003d2:	681b      	ldr	r3, [r3, #0]
- 80003d4:	2b0b      	cmp	r3, #11
- 80003d6:	d117      	bne.n	8000408 <exercise3_run+0xf4>
-		led_yellow_on_2();
- 80003d8:	f7ff ff2a 	bl	8000230 <led_yellow_on_2>
-		led_red_on_1();
- 80003dc:	f7ff ff4e 	bl	800027c <led_red_on_1>
-		if (counter2 <= 0){
- 80003e0:	4b25      	ldr	r3, [pc, #148]	; (8000478 <exercise3_run+0x164>)
- 80003e2:	681b      	ldr	r3, [r3, #0]
- 80003e4:	2b00      	cmp	r3, #0
- 80003e6:	dc0f      	bgt.n	8000408 <exercise3_run+0xf4>
-			led_red_on_2();
- 80003e8:	f7ff ff6e 	bl	80002c8 <led_red_on_2>
-			led_green_on_1();
- 80003ec:	f7ff feae 	bl	800014c <led_green_on_1>
-			led_status_2 = RED2;
+ 80003d4:	2b00      	cmp	r3, #0
+ 80003d6:	dc0b      	bgt.n	80003f0 <exercise3_run+0xdc>
+ 80003d8:	4b25      	ldr	r3, [pc, #148]	; (8000470 <exercise3_run+0x15c>)
+ 80003da:	681b      	ldr	r3, [r3, #0]
+ 80003dc:	2b0a      	cmp	r3, #10
+ 80003de:	d007      	beq.n	80003f0 <exercise3_run+0xdc>
+            led_yellow_on_1();
+ 80003e0:	f7ff ff00 	bl	80001e4 <led_yellow_on_1>
+            led_status_1 = YELLOW1;
+ 80003e4:	4b22      	ldr	r3, [pc, #136]	; (8000470 <exercise3_run+0x15c>)
+ 80003e6:	220a      	movs	r2, #10
+ 80003e8:	601a      	str	r2, [r3, #0]
+            counter1 = time_YELLOW;
+ 80003ea:	4b22      	ldr	r3, [pc, #136]	; (8000474 <exercise3_run+0x160>)
+ 80003ec:	2202      	movs	r2, #2
+ 80003ee:	601a      	str	r2, [r3, #0]
+        }
+    }
+
+    if (led_status_2 == YELLOW2) {
  80003f0:	4b22      	ldr	r3, [pc, #136]	; (800047c <exercise3_run+0x168>)
- 80003f2:	2207      	movs	r2, #7
- 80003f4:	601a      	str	r2, [r3, #0]
-			led_status_1 = GREEN1;
- 80003f6:	4b1e      	ldr	r3, [pc, #120]	; (8000470 <exercise3_run+0x15c>)
- 80003f8:	2208      	movs	r2, #8
- 80003fa:	601a      	str	r2, [r3, #0]
-			counter1 = time_GREEN;
- 80003fc:	4b1d      	ldr	r3, [pc, #116]	; (8000474 <exercise3_run+0x160>)
- 80003fe:	2203      	movs	r2, #3
- 8000400:	601a      	str	r2, [r3, #0]
-			counter2 = time_RED;
- 8000402:	4b1d      	ldr	r3, [pc, #116]	; (8000478 <exercise3_run+0x164>)
- 8000404:	2205      	movs	r2, #5
- 8000406:	601a      	str	r2, [r3, #0]
-		}
-	}
+ 80003f2:	681b      	ldr	r3, [r3, #0]
+ 80003f4:	2b0b      	cmp	r3, #11
+ 80003f6:	d115      	bne.n	8000424 <exercise3_run+0x110>
+        led_yellow_on_2();
+ 80003f8:	f7ff ff1a 	bl	8000230 <led_yellow_on_2>
+        if (counter2 <= 0) {
+ 80003fc:	4b1e      	ldr	r3, [pc, #120]	; (8000478 <exercise3_run+0x164>)
+ 80003fe:	681b      	ldr	r3, [r3, #0]
+ 8000400:	2b00      	cmp	r3, #0
+ 8000402:	dc0f      	bgt.n	8000424 <exercise3_run+0x110>
+            led_red_on_2();
+ 8000404:	f7ff ff60 	bl	80002c8 <led_red_on_2>
+            led_green_on_1();
+ 8000408:	f7ff fea0 	bl	800014c <led_green_on_1>
+            led_status_2 = RED2;
+ 800040c:	4b1b      	ldr	r3, [pc, #108]	; (800047c <exercise3_run+0x168>)
+ 800040e:	2207      	movs	r2, #7
+ 8000410:	601a      	str	r2, [r3, #0]
+            led_status_1 = GREEN1;
+ 8000412:	4b17      	ldr	r3, [pc, #92]	; (8000470 <exercise3_run+0x15c>)
+ 8000414:	2208      	movs	r2, #8
+ 8000416:	601a      	str	r2, [r3, #0]
+            counter2 = time_RED;
+ 8000418:	4b17      	ldr	r3, [pc, #92]	; (8000478 <exercise3_run+0x164>)
+ 800041a:	2205      	movs	r2, #5
+ 800041c:	601a      	str	r2, [r3, #0]
+            counter1 = time_GREEN;
+ 800041e:	4b15      	ldr	r3, [pc, #84]	; (8000474 <exercise3_run+0x160>)
+ 8000420:	2203      	movs	r2, #3
+ 8000422:	601a      	str	r2, [r3, #0]
+        }
+    }
 
-	if (led_status_1 == GREEN1){
- 8000408:	4b19      	ldr	r3, [pc, #100]	; (8000470 <exercise3_run+0x15c>)
- 800040a:	681b      	ldr	r3, [r3, #0]
- 800040c:	2b08      	cmp	r3, #8
- 800040e:	d10f      	bne.n	8000430 <exercise3_run+0x11c>
-		led_green_on_1();
- 8000410:	f7ff fe9c 	bl	800014c <led_green_on_1>
-		led_red_on_2();
- 8000414:	f7ff ff58 	bl	80002c8 <led_red_on_2>
-		if (counter1 <= 0){
- 8000418:	4b16      	ldr	r3, [pc, #88]	; (8000474 <exercise3_run+0x160>)
- 800041a:	681b      	ldr	r3, [r3, #0]
- 800041c:	2b00      	cmp	r3, #0
- 800041e:	dc07      	bgt.n	8000430 <exercise3_run+0x11c>
-			led_yellow_on_1();
- 8000420:	f7ff fee0 	bl	80001e4 <led_yellow_on_1>
-			led_status_1 = YELLOW1;
- 8000424:	4b12      	ldr	r3, [pc, #72]	; (8000470 <exercise3_run+0x15c>)
- 8000426:	220a      	movs	r2, #10
- 8000428:	601a      	str	r2, [r3, #0]
-			counter1 = time_YELLOW;
- 800042a:	4b12      	ldr	r3, [pc, #72]	; (8000474 <exercise3_run+0x160>)
- 800042c:	2202      	movs	r2, #2
- 800042e:	601a      	str	r2, [r3, #0]
-		}
-	}
-
-	if (led_status_2 == GREEN2){
- 8000430:	4b12      	ldr	r3, [pc, #72]	; (800047c <exercise3_run+0x168>)
+    if (led_status_2 == GREEN2) {
+ 8000424:	4b15      	ldr	r3, [pc, #84]	; (800047c <exercise3_run+0x168>)
+ 8000426:	681b      	ldr	r3, [r3, #0]
+ 8000428:	2b09      	cmp	r3, #9
+ 800042a:	d10d      	bne.n	8000448 <exercise3_run+0x134>
+        led_green_on_2();
+ 800042c:	f7ff feb4 	bl	8000198 <led_green_on_2>
+        if (counter2 <= 0) {
+ 8000430:	4b11      	ldr	r3, [pc, #68]	; (8000478 <exercise3_run+0x164>)
  8000432:	681b      	ldr	r3, [r3, #0]
- 8000434:	2b09      	cmp	r3, #9
- 8000436:	d10f      	bne.n	8000458 <exercise3_run+0x144>
-		led_green_on_2();
- 8000438:	f7ff feae 	bl	8000198 <led_green_on_2>
-		led_red_on_1();
- 800043c:	f7ff ff1e 	bl	800027c <led_red_on_1>
-		if(counter2 <= 0){
- 8000440:	4b0d      	ldr	r3, [pc, #52]	; (8000478 <exercise3_run+0x164>)
- 8000442:	681b      	ldr	r3, [r3, #0]
- 8000444:	2b00      	cmp	r3, #0
- 8000446:	dc07      	bgt.n	8000458 <exercise3_run+0x144>
-			led_yellow_on_2();
- 8000448:	f7ff fef2 	bl	8000230 <led_yellow_on_2>
-			led_status_2= YELLOW2;
- 800044c:	4b0b      	ldr	r3, [pc, #44]	; (800047c <exercise3_run+0x168>)
- 800044e:	220b      	movs	r2, #11
- 8000450:	601a      	str	r2, [r3, #0]
-			counter2 = time_YELLOW;
- 8000452:	4b09      	ldr	r3, [pc, #36]	; (8000478 <exercise3_run+0x164>)
- 8000454:	2202      	movs	r2, #2
- 8000456:	601a      	str	r2, [r3, #0]
-		}
-	}
-	counter1--;
- 8000458:	4b06      	ldr	r3, [pc, #24]	; (8000474 <exercise3_run+0x160>)
- 800045a:	681b      	ldr	r3, [r3, #0]
- 800045c:	3b01      	subs	r3, #1
- 800045e:	4a05      	ldr	r2, [pc, #20]	; (8000474 <exercise3_run+0x160>)
- 8000460:	6013      	str	r3, [r2, #0]
-	counter2--;
+ 8000434:	2b00      	cmp	r3, #0
+ 8000436:	dc07      	bgt.n	8000448 <exercise3_run+0x134>
+            led_yellow_on_2();
+ 8000438:	f7ff fefa 	bl	8000230 <led_yellow_on_2>
+            led_status_2 = YELLOW2;
+ 800043c:	4b0f      	ldr	r3, [pc, #60]	; (800047c <exercise3_run+0x168>)
+ 800043e:	220b      	movs	r2, #11
+ 8000440:	601a      	str	r2, [r3, #0]
+            counter2 = time_YELLOW;
+ 8000442:	4b0d      	ldr	r3, [pc, #52]	; (8000478 <exercise3_run+0x164>)
+ 8000444:	2202      	movs	r2, #2
+ 8000446:	601a      	str	r2, [r3, #0]
+        }
+    }
+
+    // Decrement counters
+    if (counter1 > 0) {
+ 8000448:	4b0a      	ldr	r3, [pc, #40]	; (8000474 <exercise3_run+0x160>)
+ 800044a:	681b      	ldr	r3, [r3, #0]
+ 800044c:	2b00      	cmp	r3, #0
+ 800044e:	dd04      	ble.n	800045a <exercise3_run+0x146>
+        counter1--;
+ 8000450:	4b08      	ldr	r3, [pc, #32]	; (8000474 <exercise3_run+0x160>)
+ 8000452:	681b      	ldr	r3, [r3, #0]
+ 8000454:	3b01      	subs	r3, #1
+ 8000456:	4a07      	ldr	r2, [pc, #28]	; (8000474 <exercise3_run+0x160>)
+ 8000458:	6013      	str	r3, [r2, #0]
+    }
+
+    if (counter2 > 0) {
+ 800045a:	4b07      	ldr	r3, [pc, #28]	; (8000478 <exercise3_run+0x164>)
+ 800045c:	681b      	ldr	r3, [r3, #0]
+ 800045e:	2b00      	cmp	r3, #0
+ 8000460:	dd04      	ble.n	800046c <exercise3_run+0x158>
+        counter2--;
  8000462:	4b05      	ldr	r3, [pc, #20]	; (8000478 <exercise3_run+0x164>)
  8000464:	681b      	ldr	r3, [r3, #0]
  8000466:	3b01      	subs	r3, #1
  8000468:	4a03      	ldr	r2, [pc, #12]	; (8000478 <exercise3_run+0x164>)
  800046a:	6013      	str	r3, [r2, #0]
+    }
 }
  800046c:	bf00      	nop
  800046e:	bd80      	pop	{r7, pc}
