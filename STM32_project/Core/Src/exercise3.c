@@ -76,6 +76,7 @@ void led_red_on_2(){
 }
 
 void exercise3_run() {
+    // Handle the state for led_status_1
     if (led_status_1 == RED1) {
         led_red_on_1();
         if (counter1 <= 0) {
@@ -83,15 +84,7 @@ void exercise3_run() {
             led_status_1 = GREEN1;
             counter1 = time_GREEN;
         }
-
-        if (counter2 <= 0) {
-            led_yellow_on_2();
-            led_status_2 = YELLOW2;
-            counter2 = time_YELLOW;
-        }
-    }
-
-    if (led_status_1 == YELLOW1) {
+    } else if (led_status_1 == YELLOW1) {
         led_yellow_on_1();
         if (counter1 <= 0) {
             led_red_on_1();
@@ -101,9 +94,7 @@ void exercise3_run() {
             counter1 = time_RED;
             counter2 = time_GREEN;
         }
-    }
-
-    if (led_status_1 == GREEN1) {
+    } else if (led_status_1 == GREEN1) {
         led_green_on_1();
         if (counter1 <= 0) {
             led_yellow_on_1();
@@ -112,6 +103,7 @@ void exercise3_run() {
         }
     }
 
+    // Handle the state for led_status_2
     if (led_status_2 == RED2) {
         led_red_on_2();
         if (counter2 <= 0) {
@@ -119,15 +111,7 @@ void exercise3_run() {
             led_status_2 = GREEN2;
             counter2 = time_GREEN;
         }
-
-        if (counter1 <= 0 && led_status_1 != YELLOW1) { // Sync with led_status_1
-            led_yellow_on_1();
-            led_status_1 = YELLOW1;
-            counter1 = time_YELLOW;
-        }
-    }
-
-    if (led_status_2 == YELLOW2) {
+    } else if (led_status_2 == YELLOW2) {
         led_yellow_on_2();
         if (counter2 <= 0) {
             led_red_on_2();
@@ -137,9 +121,7 @@ void exercise3_run() {
             counter2 = time_RED;
             counter1 = time_GREEN;
         }
-    }
-
-    if (led_status_2 == GREEN2) {
+    } else if (led_status_2 == GREEN2) {
         led_green_on_2();
         if (counter2 <= 0) {
             led_yellow_on_2();
@@ -148,12 +130,29 @@ void exercise3_run() {
         }
     }
 
-    // Decrement counters
     if (counter1 > 0) {
         counter1--;
     }
 
     if (counter2 > 0) {
         counter2--;
+    }
+
+    if (led_status_1 == YELLOW1 && led_status_2 == GREEN2 && counter1 <= 0) {
+        led_red_on_1();
+        led_green_on_2();
+        led_status_1 = RED1;
+        led_status_2 = GREEN2;
+        counter1 = time_RED;
+        counter2 = time_GREEN;
+    }
+
+    if (led_status_2 == YELLOW2 && led_status_1 == GREEN1 && counter2 <= 0) {
+        led_red_on_2();
+        led_green_on_1();
+        led_status_2 = RED2;
+        led_status_1 = GREEN1;
+        counter2 = time_RED;
+        counter1 = time_GREEN;
     }
 }
