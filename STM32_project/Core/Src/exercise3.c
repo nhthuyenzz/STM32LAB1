@@ -122,8 +122,8 @@ void exercise3_run(){
 	}
 
 	if (led_status_2 == YELLOW2){
-		led_yellow_2_on();
-		led_red_1_on();
+		led_yellow_on_2();
+		led_red_on_1();
 		if (counter2 <= 0){
 			led_red_on_2();
 			led_green_on_1();
@@ -139,7 +139,7 @@ void exercise3_run(){
 		led_red_on_2();
 		if (counter1 <= 0){
 			led_yellow_on_1();
-			led_status = YELLOW1;
+			led_status_1 = YELLOW1;
 			counter1 = time_YELLOW;
 		}
 	}
@@ -149,8 +149,8 @@ void exercise3_run(){
 		led_red_on_1();
 		if(counter2 <= 0){
 			led_yellow_on_2();
-			led_status = YELLOW2;
-			counter2 = timme_YELLOW;
+			led_status_2= YELLOW2;
+			counter2 = time_YELLOW;
 		}
 	}
 	counter1--;
