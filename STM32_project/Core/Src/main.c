@@ -22,11 +22,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-<<<<<<< HEAD
-#include "exercise1.h"
-=======
 #include "exercise2.h"
->>>>>>> 3599597d9f4baf448453e534518e7a7c922d05e3
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -52,13 +48,11 @@ TIM_HandleTypeDef htim2;
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
-<<<<<<< HEAD
 /* USER CODE BEGIN 	PFP */
-=======
 static void MX_GPIO_Init(void);
 static void MX_TIM2_Init(void);
 /* USER CODE BEGIN PFP */
->>>>>>> 313d3ca82d08456b101631de0660a3b38100cebe
+
 
 /* USER CODE END PFP */
 
@@ -105,14 +99,8 @@ int main(void)
 
   while (1)
   {
-<<<<<<< HEAD
-	  exercise1_run();
-	  HAL_Delay(500);
-
-=======
 	  exercise2_run();
 	  HAL_Delay(1000);
->>>>>>> 3599597d9f4baf448453e534518e7a7c922d05e3
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

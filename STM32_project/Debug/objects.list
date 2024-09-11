@@ -1,9 +1,5 @@
 "./Core/.metadata/.plugins/org.eclipse.cdt.make.core/specs.o"
-<<<<<<< HEAD
-"./Core/Src/exercise1.o"
-=======
 "./Core/Src/exercise2.o"
->>>>>>> 3599597d9f4baf448453e534518e7a7c922d05e3
 "./Core/Src/main.o"
 "./Core/Src/stm32f1xx_hal_msp.o"
 "./Core/Src/stm32f1xx_it.o"

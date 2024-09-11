@@ -1,8 +1,4 @@
-<<<<<<<< HEAD:STM32_project/Debug/Core/Src/exercise1.d
-Core/Src/exercise1.o: ../Core/Src/exercise1.c ../Core/Inc/exercise1.h \
-========
 Core/Src/exercise2.o: ../Core/Src/exercise2.c ../Core/Inc/exercise2.h \
->>>>>>>> 3599597d9f4baf448453e534518e7a7c922d05e3:STM32_project/Debug/Core/Src/exercise2.d
  ../Core/Inc/main.h ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h \
  ../Core/Inc/stm32f1xx_hal_conf.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h \
@@ -28,11 +24,7 @@ Core/Src/exercise2.o: ../Core/Src/exercise2.c ../Core/Inc/exercise2.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 
-<<<<<<<< HEAD:STM32_project/Debug/Core/Src/exercise1.d
-../Core/Inc/exercise1.h:
-========
 ../Core/Inc/exercise2.h:
->>>>>>>> 3599597d9f4baf448453e534518e7a7c922d05e3:STM32_project/Debug/Core/Src/exercise2.d
 
 ../Core/Inc/main.h:
 
