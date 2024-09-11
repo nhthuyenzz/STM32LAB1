@@ -35,7 +35,8 @@ void led_red_on(){
 void exercise2_run(){
 	if (led_status == RED){
 		led_red_on();
-		if(counter >= 0){
+		if(counter <= 0){
+			led_green_on();
 			led_status = GREEN;
 			counter = GREEN;
 		}
@@ -43,17 +44,19 @@ void exercise2_run(){
 
 	if (led_status == GREEN){
 		led_green_on();
-		if(counter >= 0){
+		if(counter <= 0){
+			led_yellow_on();
 			led_status = YELLOW;
 			counter = YELLOW;
 		}
 	}
 
-	if (led_status == YELLOW && counter >= 0){
+	if (led_status == YELLOW){
 		led_yellow_on();
-		if (counter >= 0){
+		if (counter <= 0){
+			led_red_on();
 			led_status = RED;
-			counter = 0;
+			counter = RED;
 		}
 	}
 	counter--;
